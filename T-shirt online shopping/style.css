@@ -1,0 +1,367 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #10121b;
+  color: white;
+}
+
+header {
+  background: #090b12;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+header h2 {
+  color: #ff3548;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  color: #ff3548;
+}
+
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 50px 8%;
+  background:
+    linear-gradient(90deg, rgba(5, 8, 20, .94),
+    rgba(5, 8, 20, .35)),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455")
+    center/cover;
+}
+
+.hero-content h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  color: #ff3548;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 22px;
+  background: #ed263b;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.btn:hover {
+  background: #b9162a;
+}
+
+.section {
+  padding: 55px 8%;
+  text-align: center;
+}
+
+.section h1 {
+  margin-bottom: 30px;
+  color: #ff485b;
+}
+
+.product {
+  display: flex;
+  gap: 45px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.shirt-preview {
+  position: relative;
+  width: 200px;
+  height: 225px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #ed263b55;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Real t-shirt photo — fills the preview box */
+#shirtImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Superhero logo — centered on the t-shirt front */
+#previewLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  max-width: 90%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.9))
+          drop-shadow(0 3px 6px rgba(0,0,0,0.8));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.options {
+  width: min(100%, 390px);
+  text-align: left;
+}
+
+.options h3 {
+  margin: 22px 0 12px;
+}
+
+.colors, .logos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color {
+  width: 38px;
+  height: 38px;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.red { background: #e5e8ea; }
+.black { background: #222; }
+.white { background: white; }
+.blue { background: #2471d3; }
+.green { background: #198754; }
+
+select, input {
+  padding: 11px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #202432;
+  color: white;
+  width: 100%;
+}
+
+.logos button {
+  background: #292d3b;
+  color: white;
+  border: 2px solid #51566a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 80px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.logos button img {
+  width: 60px;
+  height: 34px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.logos button span {
+  font-size: 11px;
+  color: #ccc;
+}
+
+.logos button:hover {
+  background: #ed263b;
+  border-color: #ed263b;
+}
+
+.logos button:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.cost {
+  background: #191d2a;
+  line-height: 2.2;
+}
+
+.cost h2 {
+  color: #46e6a5;
+}
+
+/* Size pricing table */
+.price-table {
+  margin: 0 auto 8px;
+  border-collapse: collapse;
+  min-width: 260px;
+  font-size: 15px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 8px 22px;
+  border: 1px solid #2e3347;
+  text-align: center;
+}
+
+.price-table th {
+  background: #252a3a;
+  color: #ff485b;
+  font-weight: 600;
+}
+
+.price-table tr:nth-child(even) td {
+  background: #1e2230;
+}
+
+
+#orderDetails {
+  margin-top: 12px;
+  color: #ddd;
+}
+
+footer {
+  padding: 22px;
+  text-align: center;
+  background: #090b12;
+  color: #aaa;
+}
+
+
+/* ══════════════ CONTACT SECTION ══════════════ */
+.contact-section {
+  background: #10121b;
+}
+
+.contact-subtitle {
+  color: #aaa;
+  margin-bottom: 36px;
+  font-size: 16px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.contact-card {
+  background: #1a1e2e;
+  border: 1px solid #2e3347;
+  border-radius: 12px;
+  padding: 24px 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(237, 38, 59, 0.25);
+}
+
+.contact-card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.contact-card h3 {
+  color: #ff485b;
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.contact-card p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.contact-card a {
+  color: #46e6a5;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+  color: #ff3548;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-links a {
+  color: #46e6a5;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-links a:hover {
+  color: #ff3548;
+}
+
+.map-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2e3347;
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+
+  .hero {
+    min-height: 380px;
+  }
+
+  .product {
+    gap: 25px;
+  }
+}

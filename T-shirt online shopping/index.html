@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion T-Shirts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h2>🕷 Fashion T-Shirts</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#order">Order</a>
+      <a href="#cost">Cost</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Wear Your Hero!</h1>
+      <p>Design your own superhero T-shirt.</p>
+      <a href="#order" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <section id="order" class="section">
+    <h1>Customize Your T-Shirt</h1>
+
+    <div class="product">
+      <!-- T-shirt preview: real photo + logo overlay -->
+      <div class="shirt-preview" id="shirtPreview">
+        <img id="shirtImage" src="Gemini_Generated_Image_pbyjndpbyjndpbyj.png" alt="T-Shirt Preview">
+        <img id="previewLogo" src="Spiderman-Logo-500x281.png" alt="Logo">
+      </div>
+
+      <div class="options">
+        <h3>Select T-Shirt Color</h3>
+        <div class="colors">
+          <button class="color red"   onclick="setColor('red')"></button>
+          <button class="color black" onclick="setColor('black')"></button>
+          <button class="color white" onclick="setColor('white')"></button>
+          <button class="color blue"  onclick="setColor('blue')"></button>
+          <button class="color green" onclick="setColor('green')"></button>
+        </div>
+
+        <h3>Select Size</h3>
+        <select id="size" onchange="updatePrice()">
+          <option value="S">Small (S)</option>
+          <option value="M">Medium (M)</option>
+          <option value="L">Large (L)</option>
+          <option value="XL">Extra Large (XL)</option>
+          <option value="XXL">Extra Extra Large (XXL)</option>
+        </select>
+
+        <h3>Select Logo</h3>
+        <div class="logos">
+          <button onclick="setLogo('Spiderman', 'Spiderman-Logo-500x281.png', 120)">
+            <img src="Spiderman-Logo-500x281.png" alt="Spiderman"><span>Spiderman</span>
+          </button>
+          <button onclick="setLogo('Batman', 'Batman-Logo-500x281.png', 130)">
+            <img src="Batman-Logo-500x281.png" alt="Batman"><span>Batman</span>
+          </button>
+          <button onclick="setLogo('Iron Man', 'Iron-Man-Logo-500x281.png', 140)">
+            <img src="Iron-Man-Logo-500x281.png" alt="Iron Man"><span>Iron Man</span>
+          </button>
+          <button onclick="setLogo('Thor', 'Thor-Logo-500x281.png', 130)">
+            <img src="Thor-Logo-500x281.png" alt="Thor"><span>Thor</span>
+          </button>
+          <button onclick="setLogo('Avengers', 'Avengers-Logo-500x281.png', 150)">
+            <img src="Avengers-Logo-500x281.png" alt="Avengers"><span>Avengers</span>
+          </button>
+          <button onclick="setLogo('Captain America', 'Captain-America-Logo-500x281.png', 130)">
+            <img src="Captain-America-Logo-500x281.png" alt="Captain America"><span>Cap. America</span>
+          </button>
+          <button onclick="setLogo('Deadpool', 'Deadpool-Logo-500x281.png', 120)">
+            <img src="Deadpool-Logo-500x281.png" alt="Deadpool"><span>Deadpool</span>
+          </button>
+          <button onclick="setLogo('Superman', 'Superman-Logo-500x281.png', 130)">
+            <img src="Superman-Logo-500x281.png" alt="Superman"><span>Superman</span>
+          </button>
+          <button onclick="setLogo('The Flash', 'The-Flash-Logo-500x281.png', 120)">
+            <img src="The-Flash-Logo-500x281.png" alt="The Flash"><span>The Flash</span>
+          </button>
+        </div>
+
+        <h3>Quantity</h3>
+        <input type="number" id="quantity" value="1" min="1" max="20"
+               oninput="updatePrice()">
+
+        <button class="btn" onclick="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost" class="section cost">
+    <h1>Cost Details</h1>
+
+    <table class="price-table">
+      <tr><th>Size</th><th>Base Price</th></tr>
+      <tr><td>S  — Small</td>        <td>₹399</td></tr>
+      <tr><td>M  — Medium</td>       <td>₹449</td></tr>
+      <tr><td>L  — Large</td>        <td>₹499</td></tr>
+      <tr><td>XL — Extra Large</td>  <td>₹549</td></tr>
+      <tr><td>XXL — 2X Large</td>    <td>₹599</td></tr>
+    </table>
+
+    <p style="margin-top:14px; color:#aaa;">Logo printing: added based on your design choice</p>
+    <div id="priceBreakdown" style="margin:10px 0; color:#ffcc55; font-size:15px;"></div>
+    <h2 id="total">Total: ₹519</h2>
+    <div id="orderDetails">Choose your design to see your order.</div>
+  </section>
+
+
+  <!-- ══════════════ CONTACT SECTION ══════════════ -->
+  <section id="contact" class="section contact-section">
+    <h1>Contact Us</h1>
+    <p class="contact-subtitle">We'd love to hear from you. Reach out or visit our store!</p>
+
+    <div class="contact-grid">
+
+      <!-- Store Info Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">🏪</div>
+        <h3>Store Name</h3>
+        <p>Fashion T-Shirts — Superhero Edition</p>
+      </div>
+
+      <!-- Phone Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <h3>Phone Number</h3>
+        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        <p><a href="tel:+918001234567">+91 80012 34567</a></p>
+      </div>
+
+      <!-- Location Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <h3>Location</h3>
+        <p>No. 42, Hero Street, Marvel Nagar</p>
+        <p>Bengaluru, Karnataka — 560001</p>
+        <p>India</p>
+      </div>
+
+      <!-- Hours Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">🕙</div>
+        <h3>Store Hours</h3>
+        <p>Mon – Sat &nbsp;: 10:00 AM – 8:00 PM</p>
+        <p>Sunday &nbsp;&nbsp;&nbsp;&nbsp;: 11:00 AM – 6:00 PM</p>
+      </div>
+
+      <!-- Email Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <h3>Email</h3>
+        <p><a href="mailto:support@fashiontshirts.in">support@fashiontshirts.in</a></p>
+      </div>
+
+      <!-- Social Card -->
+      <div class="contact-card">
+        <div class="contact-card-icon">🌐</div>
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#" title="Instagram">📸 Instagram</a>
+          <a href="#" title="Facebook">👍 Facebook</a>
+          <a href="#" title="Twitter / X">🐦 Twitter</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Map embed placeholder -->
+    <div class="map-container">
+      <iframe
+        title="Store Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzUnNDAuNiJF!5e0!3m2!1sen!2sin!4v1"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Fashion T-Shirts | Design Your Style</p>
+  </footer>
+
+  <!-- ══════════════ PAYMENT MODAL ══════════════ -->
+  <div id="paymentOverlay" class="pay-overlay" style="display:none;">
+    <div class="pay-modal">
+
+      <button class="pay-close" onclick="closePayment()">✕</button>
+      <h2 class="pay-title">🛒 Complete Your Order</h2>
+      <div id="payOrderSummary" class="pay-summary"></div>
+
+      <!-- Payment method cards -->
+      <h3 class="pay-label">Choose Payment Method</h3>
+      <div class="pay-methods">
+
+        <label class="pay-card" id="cardOnline">
+          <input type="radio" name="payMethod" value="online" onchange="switchPayMethod('online')">
+          <span class="pay-card-icon">💳</span>
+          <span class="pay-card-text">
+            <strong>Online Payment</strong>
+            <small>UPI · Card · Net Banking</small>
+          </span>
+        </label>
+
+        <label class="pay-card" id="cardCOD">
+          <input type="radio" name="payMethod" value="cod" onchange="switchPayMethod('cod')">
+          <span class="pay-card-icon">📦</span>
+          <span class="pay-card-text">
+            <strong>Cash on Delivery</strong>
+            <small>Pay when order arrives</small>
+          </span>
+        </label>
+
+      </div>
+
+      <!-- ── ONLINE PAYMENT PANEL ── -->
+      <div id="onlinePanel" class="pay-panel" style="display:none;">
+        <div class="online-tabs">
+          <button class="otab active" onclick="switchOnlineTab('upi', this)">📱 UPI</button>
+          <button class="otab" onclick="switchOnlineTab('card', this)">💳 Card</button>
+          <button class="otab" onclick="switchOnlineTab('netbank', this)">🏦 Net Banking</button>
+        </div>
+
+        <!-- UPI -->
+        <div id="tabUpi" class="online-tab-content">
+          <label>UPI ID</label>
+          <input type="text" id="upiId" placeholder="yourname@upi">
+          <button class="btn pay-btn" onclick="processPayment('UPI')">Pay Now</button>
+        </div>
+
+        <!-- Card -->
+        <div id="tabCard" class="online-tab-content" style="display:none;">
+          <label>Card Number</label>
+          <input type="text" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+          <div class="card-row">
+            <div>
+              <label>Expiry</label>
+              <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div>
+              <label>CVV</label>
+              <input type="password" id="cardCvv" placeholder="•••" maxlength="3">
+            </div>
+          </div>
+          <label>Name on Card</label>
+          <input type="text" id="cardName" placeholder="Full Name">
+          <button class="btn pay-btn" onclick="processPayment('Card')">Pay Now</button>
+        </div>
+
+        <!-- Net Banking -->
+        <div id="tabNetbank" class="online-tab-content" style="display:none;">
+          <label>Select Bank</label>
+          <select id="bankSelect">
+            <option value="">-- Select your bank --</option>
+            <option>State Bank of India</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+            <option>Kotak Mahindra Bank</option>
+            <option>Punjab National Bank</option>
+            <option>Bank of Baroda</option>
+            <option>Canara Bank</option>
+          </select>
+          <button class="btn pay-btn" onclick="processPayment('Net Banking')">Proceed to Bank</button>
+        </div>
+      </div>
+
+      <!-- ── CASH ON DELIVERY PANEL ── -->
+      <div id="codPanel" class="pay-panel" style="display:none;">
+        <h3 class="pay-label" style="margin-top:0;">📍 Delivery Details</h3>
+        <div class="cod-grid">
+          <div class="field-full">
+            <label>Full Name *</label>
+            <input type="text" id="codName" placeholder="Your full name">
+          </div>
+          <div>
+            <label>Phone Number *</label>
+            <input type="tel" id="codPhone" placeholder="+91 XXXXX XXXXX" maxlength="13">
+          </div>
+          <div>
+            <label>Email Address *</label>
+            <input type="email" id="codEmail" placeholder="you@email.com">
+          </div>
+          <div class="field-full">
+            <label>Street Address *</label>
+            <input type="text" id="codAddress" placeholder="House No., Street, Locality">
+          </div>
+          <div>
+            <label>City *</label>
+            <input type="text" id="codCity" placeholder="City">
+          </div>
+          <div>
+            <label>State *</label>
+            <select id="codState">
+              <option value="">Select State</option>
+              <option>Andhra Pradesh</option><option>Assam</option>
+              <option>Bihar</option><option>Delhi</option>
+              <option>Goa</option><option>Gujarat</option>
+              <option>Haryana</option><option>Himachal Pradesh</option>
+              <option>Jharkhand</option><option>Karnataka</option>
+              <option>Kerala</option><option>Madhya Pradesh</option>
+              <option>Maharashtra</option><option>Odisha</option>
+              <option>Punjab</option><option>Rajasthan</option>
+              <option>Tamil Nadu</option><option>Telangana</option>
+              <option>Uttar Pradesh</option><option>Uttarakhand</option>
+              <option>West Bengal</option>
+            </select>
+          </div>
+          <div>
+            <label>Pincode *</label>
+            <input type="text" id="codPin" placeholder="6-digit pincode" maxlength="6">
+          </div>
+          <div>
+            <label>Landmark (optional)</label>
+            <input type="text" id="codLandmark" placeholder="Near / Opposite ...">
+          </div>
+        </div>
+        <button class="btn pay-btn cod-confirm" onclick="confirmCOD()">✅ Confirm Order (COD)</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ SUCCESS MODAL ══════════════ -->
+  <div id="successOverlay" class="pay-overlay" style="display:none;">
+    <div class="pay-modal success-modal">
+      <div class="success-icon">✅</div>
+      <h2>Order Confirmed!</h2>
+      <div id="successMsg"></div>
+      <button class="btn" style="margin-top:20px;" onclick="closeSuccess()">Back to Shop</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
